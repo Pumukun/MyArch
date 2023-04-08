@@ -6,6 +6,8 @@
 :set softtabstop=4
 :set mouse=a
 
+let b:coc_diagnostic_disable = 1
+
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'https://github.com/vim-airline/vim-airline'
