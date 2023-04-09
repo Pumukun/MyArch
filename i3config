@@ -245,3 +245,10 @@ bindsym $mod+p exec --no-startup-id pavucontrol
 
 # Terminal transparancy
 #exec_always --no-startup-id picom
+
+
+## GTK+ fast start
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+
+
