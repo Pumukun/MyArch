@@ -29,15 +29,17 @@ colors:
 
 font:
   normal:
-    family: Source Code Variable
+    family: Source Code Pro
     style: Medium
 
   bold:
-    family: Source Code Variable
+    family: Source Code Pro
     style: SemiBold
 
   italic:
-    family: Source Code Variable
+    family: Source Code Pro 
     syle: italic
 
-  size: 13
+  size: 12
+
+
