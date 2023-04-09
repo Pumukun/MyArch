@@ -24,8 +24,8 @@ wireless _first_ {
 }
 
 ethernet _first_ {
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+        format_up = "%ip  󰈁"
+        format_down = "󰤯 󰈂"
 }
 
 battery all {
@@ -37,24 +37,27 @@ disk "/" {
 }
 
 load {
-        format = "%1min"
+        format = "󰻠 %1min"
 }
 
 memory {
-        format = "%used | %available"
+        format = "󰍛 %used | %available"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
 }
 
 tztime local {
-        format = "t: %H:%M:%S  d: %d-%m-%Y |"
+        format = "󱑆 %H:%M:%S | 󰃭 %d-%m-%Y "
 }
+
+
 
 # управление громкостью звука
 volume master {
-    format = "VOL %volume" # шаблон громкости в активном состоянии
-    format_muted = "VOL %volume" # шаблон громкости в состоянии muted (без звука)
+    format = "󰕾 %volume" # шаблон громкости в активном состоянии
+    format_muted = "󰕿 %volume" # шаблон громкости в состоянии muted (без звука)
     device = "default"
     mixer = "Master"
     mixer_idx = 0
 }
+
