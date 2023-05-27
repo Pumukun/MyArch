@@ -19,7 +19,8 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/tc50cal/vim-terminal'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'https://github.com/preservim/tagbar' 
-Plug 'https://github.com/neoclide/coc.nvim'
+Plug 'https://github.com/ianding1/leetcode.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 set encoding=UTF-8
 
@@ -28,7 +29,6 @@ nmap <F8> :TagbarToggle<CR>
 :set completeopt-=preview 
 
 call plug#end()
-
 
 nnoremap <F4> :NERDTreeToggle<CR>
 nnoremap <F3> :NERDTree<CR>
@@ -51,7 +51,6 @@ set hidden
 
 filetype plugin indent on
 syntax on
-
 let g:coc_global_extensions = ['coc-clangd']
 
 inoremap <silent><expr> <TAB>
