@@ -1,5 +1,0 @@
-{
-"clangd.path": "/usr/bin/clangd",
-"suggest.noselect": true,
-"clangd.fallbackFlags": ["-I/home/usrname/vcpkg/installed/x64-linux/include", "-L/home/usrname/vcpkg/installed/x64-linux/lib"]
-}

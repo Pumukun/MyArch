@@ -1,45 +1,54 @@
-# Colors (Blood Moon)
 colors:
-  # Default colors
   primary:
-    background: '0x10100E'
-    foreground: '0xC6C6C4'
+    background: '0x000000'
+    foreground: '0xF8F8F2'
 
-  # Normal colors
+  cursor:
+    text: '0x000000'
+    cursor: '0xFFFFFF'
+
   normal:
-    black:   '0x10100E'
-    red:     '0xC40233'
-    green:   '0x009F6B'
-    yellow:  '0xFFFF00'
-    blue:    '0x0087BD'
-    magenta: '0x9A4EAE'
-    cyan:    '0x20B2AA'
-    white:   '0xC6C6C4'
+    black:   '0x272822'
+    red:     '0xF92672'
+    green:   '0xA6E22E'
+    yellow:  '0xF4BF75'
+    blue:    '0x66D9EF'
+    magenta: '0xAE81FF'
+    cyan:    '0xA1EFE4'
+    white:   '0xF8F8F2'
 
-  # Bright colors
   bright:
-    black:   '0x696969'
-    red:     '0xFF2400'
-    green:   '0x03C03C'
-    yellow:  '0xFFFF00'
-    blue:    '0x007FFF'
-    magenta: '0xFF1493'
-    cyan:    '0x00CCCC'
-    white:   '0xFFFAFA'
+    black:   '0x74715D'
+    red:     '0xF92672'
+    green:   '0xA6E22E'
+    yellow:  '0xF4BF75'
+    blue:    '0x66D9EF'
+    magenta: '0xAE81FF'
+    cyan:    '0xA1EFE4'
+    white:   '0xF9F8F5'
+
+  dim:
+    black:   '0x1B1D1E'
+    red:     '0xFB0120'
+    green:   '0xA6E22E'
+    yellow:  '0xFABD2F'
+    blue:    '0x83AFE5'
+    magenta: '0xEC6A88'
+    cyan:    '0x6EC4DB'
+    white:   '0xFFFFFF'
 
 font:
   normal:
-    family: Source Code Pro
-    style: Medium
+    family: Terminus
+    style: bold
 
   bold:
-    family: Source Code Pro
-    style: SemiBold
+    family: Terminus
+    style: Bold
 
   italic:
-    family: Source Code Pro 
+    family: Terminus 
     syle: italic
 
   size: 12
-
 
