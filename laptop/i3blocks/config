@@ -1,0 +1,84 @@
+# Memory
+[memory]
+command=scripts/memory
+label=MEM 
+interval=30
+color=#F09020
+
+
+# Guess the weather hourly
+[weather]
+label=󰖐 
+command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+interval=3600
+
+
+# cpu_usage
+[cpu_usage]
+command=scripts/cpu_usage
+interval=10
+LABEL=CPU 
+#min_width=CPU: 100.00%
+#T_WARN=50
+#T_CRIT=80
+#DECIMALS=2
+#COLOR_NORMAL=#EBDBB2
+#COLOR_WARN=#FFFC00
+#COLOR_CRIT=#FF0000
+
+
+# Query my default IP address only on startup
+[ip]
+command=hostname -i | awk '{ print "IP:" $1 }'
+interval=once
+color=#91E78B
+
+[kbdd_layout]
+label= 
+command=scripts/kbdd_layout
+interval=persist
+color=#10F0F0
+
+
+[volume-pulseaudio]
+command=scripts/volume
+interval=once
+signal=1
+#MIXER=[determined automatically]
+#SCONTROL=[determined automatically]
+##exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
+#LONG_FORMAT="${SYMB} ${VOL}% [${INDEX}:${NAME}]"
+#SHORT_FORMAT="${SYMB} ${VOL}% [${INDEX}]"
+#AUDIO_HIGH_SYMBOL='  '
+#AUDIO_MED_THRESH=50
+#AUDIO_MED_SYMBOL='  '
+#AUDIO_LOW_THRESH=0
+#AUDIO_LOW_SYMBOL='  '
+#AUDIO_DELTA=5
+#DEFAULT_COLOR="#ffffff"
+#MUTED_COLOR="#a0a0a0"
+#USE_ALSA_NAME=0
+#USE_DESCRIPTION=0
+## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
+#SUBSCRIBE=0
+
+
+# Battery status
+[batterybar]
+command=scripts/batterybar
+label=bat:
+interval=5
+markup=pango
+min_width=bat: ■■■■■
+
+
+# Calendar
+[calendar]
+command=scripts/calendar
+interval=1
+LABEL=󰃭 
+DATEFMT=+%d.%m.%Y 󱑆 %H:%M:%S
+HEIGHT=180
+WIDTH=220
+
+
