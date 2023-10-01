@@ -20,13 +20,15 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine' 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " Initialize plugin system
 call plug#end()
 
 inoremap jk <ESC>
-nnoremap <F3> :NERDTree<CR>
-nmap <F4> :NERDTreeToggle<CR>
+nmap <F3> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
@@ -44,8 +46,8 @@ set history=5000
 set clipboard=unnamedplus
 
 	" open NERDTree automatically
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * NERDTree
 
 let g:NERDTreeGitStatusWithFlags = 1
 "let g:WebDevIconsUnicodeDecorateFolderNodes = 1
@@ -106,7 +108,7 @@ imap <C-v> <Esc>pi
 " moonfly
 " snazzy
 set background=dark
-colorscheme moonfly
+colorscheme catppuccin-mocha
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
@@ -260,7 +262,7 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_statusline_ontop=0
-let g:airline_theme='simple' " tommorow
+let g:airline_theme='deus' " tommorow simple
 
 let g:airline#extensions#tabline#formatter = 'default'
 " navegação entre os buffers
