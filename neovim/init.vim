@@ -1,141 +1,143 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'mattn/emmet-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
-"Plug 'tsony-tsonev/nerdtree-git-plugin'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plug 'scrooloose/nerdcommenter'
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }"
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'sheerun/vim-polyglot'
-Plug 'morhetz/gruvbox'
-Plug 'rafi/awesome-vim-colorschemes'  
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'Yggdroot/indentLine' 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
+Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'sheerun/vim-polyglot'
+Plug 'mattn/emmet-vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" NERDTree
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'scrooloose/nerdcommenter'
+Plug 'ryanoasis/vim-devicons'
+
+" airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'BurntSushi/ripgrep'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+
+"colorschemes
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'morhetz/gruvbox'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'junegunn/seoul256.vim'
+Plug 'rebelot/kanagawa.nvim'
+Plug 'sainnhe/sonokai'
 
 " Initialize plugin system
 call plug#end()
 
-inoremap jk <ESC>
-nmap <F3> :NERDTreeToggle<CR>
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
 
 set mouse=a
 set number
 set hidden
 set cursorline
-set expandtab
-set autoindent
-set smartindent
 set shiftwidth=4
 set tabstop=4
 set encoding=utf8
 set history=5000
 set clipboard=unnamedplus
 
-	" open NERDTree automatically
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * NERDTree
+" |, ¦, ┆, ┊
+set list lcs=tab:\¦\
+
+nnoremap <leader>hl <cmd>GitGutterLineNrHighlightsToggle<cr><cmd>GitGutterLineHighlightsToggle<cr>
+
+""" < ===== Telescope ===== >
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fs <cmd>Telescope git_status<cr>
+"""
+
+" colorscheme
+set background=dark
+colorscheme OceanicNext
+
+
+""" < ===== NERDTree ===== >
+nmap <C-r> :NERDTreeRefreshRoot<CR>
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
+
+" open NERDTree automatically
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree
 
 let g:NERDTreeGitStatusWithFlags = 1
 "let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 "let g:NERDTreeGitStatusNodeColorization = 1
 "let g:NERDTreeColorMapCustom = {
-    "\ "Staged"    : "#0ee375",  
-    "\ "Modified"  : "#d9bf91",  
-    "\ "Renamed"   : "#51C9FC",  
-    "\ "Untracked" : "#FCE77C",  
-    "\ "Unmerged"  : "#FC51E6",  
-    "\ "Dirty"     : "#FFBD61",  
-    "\ "Clean"     : "#87939A",   
-    "\ "Ignored"   : "#808080"   
-    "\ }                         
-
+    "\ "Staged"    : "#0ee375",
+    "\ "Modified"  : "#d9bf91",
+    "\ "Renamed"   : "#51C9FC",
+    "\ "Untracked" : "#FCE77C",
+    "\ "Unmerged"  : "#FC51E6",
+    "\ "Dirty"     : "#FFBD61",
+    "\ "Clean"     : "#87939A",
+    "\ "Ignored"   : "#808080"
+    "\ }
 
 let g:NERDTreeIgnore = ['^node_modules$']
 
-" vim-prettier
-"let g:prettier#quickfix_enabled = 0
-"let g:prettier#quickfix_auto_focus = 0
-" prettier command for coc
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-" run prettier on save
-"let g:prettier#autoformat = 0
-"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
-
-" ctrlp
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-" j/k will move virtual lines (lines that wrap)
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-nnoremap <C-s> :w<CR>
-nnoremap <C-Q> :wq<CR>
-
-" shift+arrow selection
-nmap <S-Up> v<Up>
-nmap <S-Down> v<Down>
-nmap <S-Left> v<Left>
-nmap <S-Right> v<Right>
-vmap <S-Up> <Up>
-vmap <S-Down> <Down>
-vmap <S-Left> <Left>
-vmap <S-Right> <Right>
-imap <S-Up> <Esc>v<Up>
-imap <S-Down> <Esc>v<Down>
-imap <S-Left> <Esc>v<Left>
-imap <S-Right> <Esc>v<Right>
-
-vmap <C-c> y<Esc>i
-vmap <C-x> d<Esc>i
-map <C-v> pi
-imap <C-v> <Esc>pi
-
-"set cindent
-" moonfly
-" snazzy
-set background=dark
-colorscheme catppuccin-mocha
-
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+function! IsNERDTreeOpen()
+	return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
 
 " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
 " file, and we're not in vimdiff
 function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
+	if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+		NERDTreeFind
+		wincmd p
+	endif
 endfunction
 
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncTree()
+"""
 
-" coc config
+
+" ctrlp
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+
+" j/k will move virtual lines (lines that wrap)
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+
+" copy paste :)
+vmap <C-c> y<Esc>i
+vmap <C-x> d<Esc>i
+map <C-v> pi
+imap <C-v> <Esc>pi
+
+
+""" < ===== coc config ===== >
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json', 
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
   \ 'coc-python',
   \ ]
 " from readme
@@ -152,14 +154,14 @@ set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+	\ coc#pum#visible() ? coc#pum#next(1) :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
@@ -183,30 +185,44 @@ nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
+nnoremap <silent> gt :call <SID>toggle_diagnostics()<CR>
+
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
+endfunction
+
+" Function that toggles Coc diagnostics
+function! s:toggle_diagnostics()
+	if coc#util#get_config('diagnostic').enable
+		set signcolumn=yes
+		call coc#config('diagnostic', { 'enable': v:false })
+	else
+		set signcolumn=yes
+		call coc#config('diagnostic', { 'enable': v:true })
+	endif
+	silent call coc#rpc#restart()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
-nmap <F2> <Plug>(coc-rename)
+nmap <leader>f2 <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>fo  <Plug>(coc-format-selected)
+nmap <leader>fo  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-" Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+	autocmd!
+	" Setup formatexpr specified filetype(s).
+	autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+	" Update signature help on jump placeholder
+	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
@@ -257,7 +273,10 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>i
+"""
 
+
+" vim airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -274,4 +293,3 @@ let g:ale_completion_enabled = 0
 let g:ale_linters = {'python': ['flake8', 'pylint'], 'javascript': ['eslint']}
 
 let g:coc_diagnostic_disable = 1
-
