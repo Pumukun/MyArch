@@ -55,6 +55,7 @@ set clipboard=unnamedplus
 set list lcs=tab:\¦\
 
 nnoremap <leader>hl <cmd>GitGutterLineNrHighlightsToggle<cr><cmd>GitGutterLineHighlightsToggle<cr>
+nmap <leader>nt :call NumberToggle()<cr>
 
 """ < ===== Telescope ===== >
 " Find files using Telescope command-line sugar.
@@ -93,6 +94,15 @@ let g:NERDTreeGitStatusWithFlags = 1
     "\ }
 
 let g:NERDTreeIgnore = ['^node_modules$']
+
+function! NumberToggle()
+	if(&relativenumber == 1)
+		set norelativenumber
+	else
+		set relativenumber
+	endif
+endfunc
+
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
