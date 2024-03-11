@@ -1,0 +1,12 @@
+{
+	"suggest.noselect": true,
+	"python.pythonPath": "/bin/python",
+	"python.jediEnabled": true,
+	"python.jediPath": "/usr/lib/python3.10/site-packages",
+	"python.linting.pylintEnabled": true,
+	"python.linting.pylintPath": "/bin/pylint",
+	"python.linting.flake8Enabled": false,
+	"diagnostic.enable": false,
+	"snippets.ultisnips.pythonPrompt": false,
+	"clangd.path": "/bin/clangd"
+}
