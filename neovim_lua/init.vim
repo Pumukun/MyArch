@@ -50,6 +50,7 @@ lua << EOF
 require('keymaps')
 require('colorscheme')
 require('misc')
+require('settings')
 
 change_color_scheme('OceanicNext', 'dark')
 
