@@ -12,4 +12,4 @@ opt.history = 5000
 opt.clipboard = 'unnamedplus'
 
 -- |, ¦, ┆, ┊
-vim.cmd'set list lcs=tab:\¦\ '
+vim.cmd'set list lcs=tab:\\¦\\ '
