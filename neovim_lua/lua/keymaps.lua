@@ -23,3 +23,6 @@ kset('n', '<M-Right>', ':bn<cr>', { noremap = true })
 kset('n', '<M-Left>', ':bp<cr>', { noremap = true })
 kset('n', '<C-x>', ':bp |bd #<cr>', { noremap = true })
 
+kset('n', '<M-l>', ':bn<cr>', { noremap = true })
+kset('n', '<M-h>', ':bn<cr>', { noremap = true })
+
