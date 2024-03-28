@@ -10,6 +10,7 @@ opt.tabstop = 4
 opt.encoding = 'utf8'
 opt.history = 5000
 opt.clipboard = 'unnamedplus'
+opt.scrolloff = 10
 
 -- |, ¦, ┆, ┊
 vim.cmd'set list lcs=tab:\\¦\\ '
