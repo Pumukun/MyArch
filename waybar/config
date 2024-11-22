@@ -1,0 +1,112 @@
+{
+	"layer": "top", 
+	"position": "top", 
+	"height": 0,  
+	"spacing": 0, 
+	"margin-bottom": 0,
+
+	"modules-left": [
+		"custom/distro-icon",
+		"hyprland/workspaces",
+		"wlr/taskbar"
+	],
+
+	"modules-center": [
+		"custom/spotify"
+		// "wlr/taskbar"
+	],
+
+	"modules-right": [
+		"custom/wvkbd",
+		"wireplumber", 
+		"network", 
+		"cpu",
+		"battery",
+		"clock",
+		"tray"
+	],
+
+	"custom/wvkbd": {
+		"format": "kbd",
+		"tooltip": false,
+		"on-click": "$HOME/.config/waybar/wvkbd_switch.sh",
+		"return-type": "json"
+	},
+
+	"custom/spotify": {
+		"format": " {}",
+		"max-length": 40,
+		"interval": 1,
+		"exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null",
+		"exec-if": "pgrep spotify"
+	},
+
+	"wireplumber": {
+		"format": "{icon} {volume}%",
+		"format-icons": ["", "", "󰕾", ""],
+		"tooltip": false,
+		"format-muted":""
+	},
+
+	"battery": {
+		"format": "{icon}  {capacity}%",
+		"format-icons": ["", "", "", "", ""],
+		"tooltip": true,
+		"on-click": "upower -i $(upower -e | grep 'BAT' | grep 'time to full:')",
+		"interval": 3
+	},
+
+	"clock": {
+		"format-alt": "{:%Y-%m-%d}",
+		"tooltip": false,
+	},
+
+	"cpu": {
+		"interval":1,
+		"format": "{usage}%",
+		"tooltip": false
+	},
+
+	"memory": {
+		"format": "{usage}%",
+		"tooltip": false
+	},
+
+	"network": {
+		// "interface": "wlp2s0", // (Optional) To force the use of this interface
+		"on-click": "rofi-wifi-menu",
+		"format-wifi": "  {essid} ",
+		"format-ethernet": "󰈀 {ifname}",
+		"format-disconnected": "󰌙 (No IP)",
+		"format-wireguard": "󰖂",
+		"tooltip": false,
+		"interval": 5,
+		"exec": "sudo wg show",
+	},
+
+	"tray": {
+		"icon-size": 16,
+		"spacing": 2
+	},
+
+	"wlr/taskbar": {
+		"format": "{icon}",
+		"icon-size": 20,
+		"icon-theme": "Numix-Circle",
+		"tooltip": false,
+		"on-click": "activate",
+		"on-click-middle": "close",
+		"ignore-list": [
+			"Alacritty"
+		],
+		"app_ids-mapping": {
+			"firefoxdeveloperedition": "firefox-developer-edition"
+		},
+		"rewrite": {
+			"Firefox Web Browser": "Firefox",
+			"Foot Server": "Terminal"
+		}
+	}
+
+}
+

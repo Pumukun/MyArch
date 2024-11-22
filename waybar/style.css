@@ -1,0 +1,171 @@
+/*@import "macchiato.css";*/
+/*@import "darkblue.css";*/
+@import "win95.css";
+
+* {
+	/* font-family: FiraCode Nerd Font; */
+	font-family: Terminus;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+
+window#waybar {
+	background-color: @base;
+
+	border: 2px outset @base;
+
+	font-size: 12px;
+}
+
+
+#workspaces {
+	background-color: @base;
+
+	padding: 3px;
+
+	margin: 2px;
+	margin-right: 0;
+
+	border: 2px outset #808080;
+	border-radius: 0px;
+	outline: none;
+
+	font-size: 0;
+}
+
+#workspaces button.active {
+	background-color: @base;
+	min-width: 20px;
+
+	border: 1px inset #808080;
+
+	transition-property: border, min-width, background-color;
+	transition-duration: 0.3s;
+}
+
+#workspaces button {
+	background-color: @base;
+
+	min-width: 10px;
+	min-height: 0px;
+
+	margin: 2px;
+	margin-left: 2px;
+
+	border: 1px outset #808080;
+	border-radius: 0px;
+
+	transition-property: border, min-width, background-color;
+	transition-duration: 0.3s;
+}
+
+#taskbar {
+	background-color: @base;
+
+	padding: 0px;
+
+	margin: 2px 0px;
+
+	border-radius: 0px;
+
+	font-size: 12px;
+}
+
+#taskbar button {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+#tray {
+	background-color: @base;
+
+	padding: 2px;
+
+	margin: 2px 0px;
+
+	border: 2px outset #808080;
+	border-radius: 0px;
+
+	font-size: 12px;
+}
+
+#wireplumber,
+#network,
+#cpu,
+#battery,
+#clock {
+	background-color: @base;
+	color: @text;
+
+	padding: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+
+	margin: 2px 0px;
+
+	border: 2px outset #808080;
+	border-radius: 0px;
+
+	font-size: 12px;
+}
+
+#cpu {
+	min-width: 26px;
+}
+
+#wireplumber {
+	min-width: 34px;
+
+	border: 2px outset #808080;
+
+	font-size: 12px;
+}
+
+#wireplumber.muted, #network.disconnected {
+	background-color: @base;
+	color: black;
+
+	border: 2px inset #808080;
+}
+
+
+#battery {
+	border: 2px outset #808080;
+
+	font-size: 12px;
+}
+
+#battery.charging {
+	background-color: @cyan;
+	color: @black;
+
+	border: 2px inset #808080;
+}
+
+#battery.full {
+	background-color: @green;
+	color: @base;
+
+	border: 2px inset #808080;
+}
+
+#custom-wvkbd {
+	min-width: 34px;
+
+	border: 2px outset #808080;
+
+	font-size: 12px;
+}
+
+#custom-wvkbd.enabled {
+	min-width: 34px;
+
+	background-color: @cyan;
+
+	border: 2px inset #808080;
+
+	font-size: 12px;
+
+}
+

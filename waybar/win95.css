@@ -1,0 +1,11 @@
+@define-color base #b4b4b4;
+@define-color text #000000;
+
+@define-color black		#000000;
+@define-color red		#ff0000;
+@define-color green		#80ff00;
+@define-color yellow	#ffff00;
+@define-color blue		#3366ff;
+@define-color magenta	#ff0081;
+@define-color cyan		#00ffff;
+@define-color white		#fdffff;

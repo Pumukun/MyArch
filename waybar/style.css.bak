@@ -1,0 +1,99 @@
+/*@import "macchiato.css";*/
+/*@import "darkblue.css";*/
+@import "win95.css";
+
+* {
+	font-family: FiraCode Nerd Font;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+
+window#waybar {
+	background-color: rgba(0, 0, 0, 0);
+	/* border: 2px solid alpha(@crust, 0.3); */
+	font-size: 12px;
+}
+
+
+#workspaces {
+	background-color: @base;
+	border-radius: 10px;
+	margin: 2px;
+	font-size: 0;
+	padding: 5px;
+}
+
+#workspaces button.active {
+	background-color: @yellow;
+	min-width: 26px;
+	transition-property: min-width, background-color;
+	transition-duration: 0.5s;
+}
+
+#workspaces button {
+	min-width: 10px;
+	min-height: 0px;
+	background-color: @blue;
+	border-radius: 10px;
+	margin: 2px;
+	margin-left: 2px;
+}
+
+#taskbar {
+	background-color: @base;
+	border-radius: 10px;
+	margin: 2px;
+	padding: 0px;
+	padding-left: 4px;
+	padding-right: 4px;
+	font-size: 12px;
+}
+
+#tray {
+	background-color: @black;
+	border-radius: 10px;
+	margin: 2px;
+	padding: 2px;
+	font-size: 12px;
+}
+
+#wireplumber,
+#network,
+#cpu,
+#battery,
+#clock {
+	background-color: @base;
+	color: @text;
+	padding: 3px;
+	border-radius: 10px;
+	margin: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 12px;
+}
+
+#wireplumber.muted, #network.disconnected {
+	background-color: @red;
+	color: @base;
+}
+
+#wireplumber {
+	min-width: 28px;
+	font-size: 12px;
+}
+
+#battery {
+	font-size: 12px;
+}
+
+#battery.charging {
+	background-color: @cyan;
+	color: @base;
+}
+
+#battery.full {
+	background-color: @green;
+	color: @base;
+}
+
