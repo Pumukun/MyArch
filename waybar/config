@@ -20,6 +20,7 @@
 		"custom/wvkbd",
 		"wireplumber", 
 		"network", 
+		"custom/IP",
 		"cpu",
 		"battery",
 		"clock",
@@ -31,6 +32,12 @@
 		"tooltip": false,
 		"on-click": "$HOME/.config/waybar/wvkbd_switch.sh",
 		"return-type": "json"
+	},
+
+	"custom/IP": {
+		"format": "{}",
+		"tooltip": false,
+		"exec": "hostname -i | awk '{print $1}'"
 	},
 
 	"custom/spotify": {

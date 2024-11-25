@@ -94,7 +94,8 @@ window#waybar {
 #network,
 #cpu,
 #battery,
-#clock {
+#clock,
+#custom-IP {
 	background-color: @base;
 	color: @text;
 
@@ -154,6 +155,8 @@ window#waybar {
 	min-width: 34px;
 
 	border: 2px outset #808080;
+
+	margin: 2px 0;
 
 	font-size: 12px;
 }
